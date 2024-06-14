@@ -1,0 +1,243 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/19/2024 3:09:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IRM7JJB"
+  DTS:CreatorName="DESKTOP-IRM7JJB\Toshiba"
+  DTS:DTSID="{DA637B25-E3FD-4908-93CB-AA96DB4AB45B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{347F3194-3FC0-40A7-B48A-861779BB89F3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AprendizajeLaboratorio]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{B695A8BF-0B8B-483A-BF0B-BDC664967655}"
+      DTS:ObjectName="AprendizajeLaboratorio">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\Toshiba\Documents\IntegrationServices\AprendizajeLaboratorio" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{EE4EA538-2098-4A38-BDBD-79C807045B50}"
+      DTS:ObjectName="FTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="66.220.9.50:21">
+          <DTS:FtpConnection
+            DTS:ServerName="66.220.9.50"
+            DTS:ServerUserName="moni1928"
+            DTS:UsePassiveMode="False">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtP2jN0cY80eFQ0V4qvp/NQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADEa7eL2M/TVnlEl4RvjkdgwRvEomT2Hl4uCTnVlcRPMgAAAAAOgAAAAAIAACAAAAD87mufGO4Jp6aNyJTilPRm+ISBPNoVpqMnp1gkmz3pliAAAACNlMJyQozguQuAz6rUzlhMYc2rzkE8GTu1rQiwXS1m6EAAAACWTY3ux0GDG1PJbJbXrTj55hXXLGiFWZWPDKd4g2mvVJm1RMATsYa18S+ooJBGL1CzNf6iDZir2nZGkqOeT8mj</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Nuevo documento de texto.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{492C6F98-2B86-4391-8C3E-735729D8E0DA}"
+      DTS:ObjectName="Nuevo documento de texto.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Toshiba\Documents\IntegrationServices\AprendizajeLaboratorio\Nuevo documento de texto.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Recibir]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{31D07EC5-B36A-499B-A265-4D3888A5AFFE}"
+      DTS:ObjectName="Recibir">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="C:\Users\Toshiba\Documents\IntegrationServices\Aprendizaje\Recibir" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Recibir 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E6F53D1F-748A-46E3-907A-D6EB4722B284}"
+      DTS:ObjectName="Recibir 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="C:\Users\Toshiba\Documents\IntegrationServices\AprendizajeLaboratorio\Recibir" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task Borrar Carpeta"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{4D9C662E-0457-45E4-B1BD-38C49A99CD91}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task Borrar Carpeta"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2022; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{EE4EA538-2098-4A38-BDBD-79C807045B50}"
+          TaskOperationType="RemoveDirRemote"
+          TaskRemotePath="/My Documents/NuevaCarpeta"
+          TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task Crear Carpeta"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{4FC8C459-BC73-4B92-9E52-A7D28BA62D38}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task Crear Carpeta"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2022; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{EE4EA538-2098-4A38-BDBD-79C807045B50}"
+          TaskOperationType="MakeDirRemote"
+          TaskRemotePath="/My Documents/NuevaCarpeta" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task Enviar archivo"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{B709BE58-F514-475A-9D5A-C93A85CE0310}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task Enviar archivo"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2022; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{EE4EA538-2098-4A38-BDBD-79C807045B50}"
+          TaskLocalPath="Nuevo documento de texto.txt"
+          TaskRemotePath="/My Documents/NuevaCarpeta/" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B7C55576-E07F-4C6B-B2A8-E8B7C1D1831B}"
+      DTS:From="Package\FTP Task Crear Carpeta"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FTP Task Enviar archivo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{76AEBB7E-9A45-4A84-8800-A01833439B0B}"
+      DTS:From="Package\FTP Task Enviar archivo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FTP Task Borrar Carpeta" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\FTP Task Crear Carpeta"
+          TopLeft="253,79" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\FTP Task Borrar Carpeta"
+          TopLeft="238,253" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\FTP Task Enviar archivo"
+          TopLeft="235,157" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="352.5,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,36"
+              Start="0,0"
+              End="-18,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="-4,18" />
+                  <mssgle:LineSegment
+                    End="-14,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,18"
+                    Point2="-18,18"
+                    Point3="-18,22" />
+                  <mssgle:LineSegment
+                    End="-18,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="336.75,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
